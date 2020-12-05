@@ -1,0 +1,28 @@
+<div id="user-posts-edit">
+  <%= form_with model: @post,
+                url: user_post_path(current_user, @post),
+                local: true do |f| %>
+    <div class="field">
+      <div class="control">
+        <%= f.text_field :title,
+                         placeholder: 'Title', class: 'input is-large' %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= f.text_area :body,
+                        placeholder: 'Write whatever here', class: 'textarea' %>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= f.submit 'Submit',
+                     class: 'button is-link is-light' %>
+      </div>
+      <div class="control">
+        <%= link_to 'Cancel', user_posts_path(current_user),
+                      class: 'button is-light' %>
+      </div>
+    </div>
+  <% end %>
+</div>

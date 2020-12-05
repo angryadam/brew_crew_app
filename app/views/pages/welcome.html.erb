@@ -5,7 +5,7 @@
         Hello <%= current_user.name.familiar %>!
       </h1>
       <h2 class="subtitle">
-        Hero subtitle!
+        <%= link_to 'Posts', user_posts_path(current_user) %>
       </h2>
     </div>
   </div>

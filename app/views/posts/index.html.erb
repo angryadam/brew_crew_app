@@ -1,0 +1,15 @@
+<div id="user-posts-index">
+  <h1>Your Posts</h1>
+
+  <%= link_to 'Create New Post!', new_user_post_path(current_user), class: 'button is-primary' %>
+
+  <% @posts.each do |post| %>
+    <div class="box">
+      <%= link_to post.title, user_post_path(current_user, post) %>
+      <%= link_to 'Edit', edit_user_post_path(current_user, post),
+                  class: 'button is-link' %>
+      <%= link_to 'Delete', user_post_path(current_user, post),
+                  method: :delete, class: 'button is-text' %>
+    </div>
+  <% end %>
+</div>
