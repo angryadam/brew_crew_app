@@ -9,6 +9,8 @@ require("trix")
 require("@rails/actiontext")
 require("@rails/activestorage").start()
 
+import "@fortawesome/fontawesome-free/js/all"
+
 // App defined scripts
 require("src/javascripts/global")
 // Uncomment to copy all static images under ../images to the output folder and reference

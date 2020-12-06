@@ -2,8 +2,13 @@
   #posts-container {
 	margin-top: 1em;
 
-	//.post-title a { color: $big-stone; }
-	hr { background-color: $lightning-yellow; }
+	.post-title a {
+	  text-decoration: underline solid transparent;
+
+	  &:hover {
+		text-decoration: underline solid $lightning-yellow ;
+	  }
+	}
 
 	.box {
 	  min-height: 18em;
@@ -15,9 +20,14 @@
   }
 }
 
+#user-posts-new, #user-posts-edit {
+  padding: 3em 15em;
+}
+
 #user-posts-show {
   padding: 3em 15em;
   background-color: $white;
+  height: 100vh;
 
   #byline {
 	color: $diminished-grey;

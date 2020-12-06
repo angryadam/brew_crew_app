@@ -1,8 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item is-size-3" href="https://bulma.io">
+    <a class="navbar-item is-size-3" href="/" style="color: white;">
       AdventBeer.com
-<!--      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">-->
     </a>
   </div>
   <div class="navbar-menu">
@@ -10,16 +9,14 @@
       <% if signed_in? %>
 					<span class="navbar-item">
 						<%= link_to user_posts_path(current_user), class: 'button is-secondary' do %>
-<!--							<i class="fas fa-chart-area"></i>-->
-							<p>Home</p>
+							<i class="fas fa-home"></i>
 						<% end %>
 					</span>
         <span class="navbar-item">
-          <%= link_to 'New', new_user_post_path(current_user), class: 'button is-primary' %>
-					<%#= link_to new_provider_path, class: 'button is-primary' do %>
-<!--						<i class="fas fa-plus"></i>-->
-<!--							<p>New</p>-->
-					<%# end %>
+          <%= link_to new_user_post_path(current_user), class: 'button is-primary' do %>
+						<i class="fas fa-pen-nib"></i>
+            <i class="fas fa-plus"></i>
+					<% end %>
 					</span>
       <% end %>
     </div>
@@ -28,7 +25,6 @@
         <div class="navbar-item">
           <%= button_to sign_out_path, method: :delete, class: 'button is-light' do %>
             <i class="fas fa-sign-out-alt"></i>
-            <p>Sign Out</p>
           <% end %>
         </div>
       <% else %>

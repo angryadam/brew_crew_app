@@ -30,6 +30,8 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       flash[:success] = "\"#{@post.title}\" has been updated!"
       redirect_to user_posts_path(current_user)
+    else
+      render :edit
     end
   end
 

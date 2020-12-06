@@ -1,13 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :background_images, class_name: 'BackgroundImage'
+  has_one :background_image, class_name: 'BackgroundImage'
   has_many :header_images, class_name: 'HeaderImage'
 
   has_rich_text :body
   validates :body, presence: true
   alias_method :posted_by, :user
 
-  after_initialize :add_default_text, unless: :persisted?
+  before_validation :add_default_text
 
   private
 
