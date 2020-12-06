@@ -1,0 +1,25 @@
+#user-posts-index {
+  #posts-container {
+	margin-top: 1em;
+
+	//.post-title a { color: $big-stone; }
+	hr { background-color: $lightning-yellow; }
+
+	.box {
+	  min-height: 18em;
+
+	  .date-posted {
+		color: $diminished-grey;
+	  }
+	}
+  }
+}
+
+#user-posts-show {
+  padding: 3em 15em;
+  background-color: $white;
+
+  #byline {
+	color: $diminished-grey;
+  }
+}

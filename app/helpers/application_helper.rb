@@ -7,4 +7,11 @@ module ApplicationHelper
     when 'alert' then "notification is-primary"
     end
   end
+
+  def format_datetime(datetime)
+    return unless datetime
+
+    datetime.in_time_zone("Pacific Time (US & Canada)")
+            .strftime('%b. %e %Y, %l:%M%P')
+  end
 end

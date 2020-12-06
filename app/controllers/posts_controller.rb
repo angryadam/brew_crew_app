@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.where(user: current_user)
+    @posts = Post.where(user: current_user).order(id: :desc)
   end
 
   def new
@@ -13,8 +13,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:success] = "#{@post.title} is now live! 🎉"
+      flash[:success] = "\"#{@post.title}\" is now live! 🎉"
       redirect_to user_posts_path(current_user)
+    else
+      render :new
     end
   end
 
@@ -26,14 +28,14 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = "#{@post.title} has been updated!"
+      flash[:success] = "\"#{@post.title}\" has been updated!"
       redirect_to user_posts_path(current_user)
     end
   end
 
   def destroy
     if @post.destroy
-      flash[:notice] = "#{@post.title} has been deleted!"
+      flash[:notice] = "\"#{@post.title}\" has been deleted!"
       redirect_to user_posts_path(current_user)
     end
   end

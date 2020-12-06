@@ -1,15 +1,24 @@
 <div id="user-posts-index">
-  <h1>Your Posts</h1>
+  <h2 class="is-size-2">Your Posts</h2>
+  <div class="columns is-multiline" id="posts-container">
+    <% @posts.each do |post| %>
+      <div class="column is-one-third">
+        <div class="box">
+          <h4 class="post-title is-size-4">
+            <%= link_to post.title.truncate(30), user_post_path(current_user, post) %>
+          </h4>
+          <p class="date-posted"><%= format_datetime(post.created_at) %></p>
+          <hr>
+          <p><%= truncate(post.body.to_plain_text, length: 180) %></p>
 
-  <%= link_to 'Create New Post!', new_user_post_path(current_user), class: 'button is-primary' %>
+          <br><br>
 
-  <% @posts.each do |post| %>
-    <div class="box">
-      <%= link_to post.title, user_post_path(current_user, post) %>
-      <%= link_to 'Edit', edit_user_post_path(current_user, post),
-                  class: 'button is-link' %>
-      <%= link_to 'Delete', user_post_path(current_user, post),
-                  method: :delete, class: 'button is-text' %>
-    </div>
-  <% end %>
+          <%= link_to 'Edit', edit_user_post_path(current_user, post),
+                      class: 'button is-link' %>
+          <%= link_to 'Delete', user_post_path(current_user, post),
+                      method: :delete, class: 'button is-text' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

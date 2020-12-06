@@ -1,28 +1,29 @@
 //@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap');
 
-// Set your brand colors
-$midnight-blue: #0A3A61;
-$blue-sapphire: #0E5681;
-$sea-blue: #146894;
-$seafoam-green: #089C7E;
-$crayola-yellow: #FDE88A;
-$middle-red: #EF946A;
-$chinese-orange: #E9683B;
-$background-grey: #ededed;
+// AdventBeer.com brand colors
+$white: #FFFFFF;
+$mercury: #E5E5E5;
+$lightning-yellow: #FCC212;
+$big-stone: #14213D;
+$eerie-black: #242423;
+
+$danger-red: #f44336;
+$success-green: #81b53d;
+$warning-orange: #fea505;
+$info-blue: #242423;
 $box-shadow-grey: #dedede;
 $diminished-grey: #b5b5b5;
-$mountain-grey: #363636;
 
 // Update Bulma's global variables
 //$family-sans-serif: 'Sen', sans-serif;
-$grey-dark: $midnight-blue;
-$info: $sea-blue;
-$danger: $chinese-orange;
-$primary: $sea-blue;
-$link: $chinese-orange;
-$success: $seafoam-green;
-$warning: $crayola-yellow;
-$body-background-color: $background-grey;
+$primary: $lightning-yellow;
+$grey-dark: $eerie-black; // also text color
+$link: $lightning-yellow;
+$info: $big-stone;
+$success: $success-green;
+$warning: $warning-orange;
+$danger: $danger-red;
+$body-background-color: $mercury;
 
 $header-and-foot-height: 274px;
 
@@ -54,4 +55,21 @@ a.button.is-text {
 
 ::placeholder {
   color: $diminished-grey !important;
+}
+
+trix-editor {
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  background-color: $white;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  color: #363636;
+
+  &:hover {
+    border-color: $diminished-grey;
+  }
+
+  &:focus {
+    border-color: $lightning-yellow;
+    box-shadow: 0 0 0 0.125em rgba(252, 194, 18, 0.25);
+  }
 }
