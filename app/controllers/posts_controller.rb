@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.where(user: current_user).order(id: :desc)
+    @posts = Post.where(user: current_user).order(id: :desc).with_rich_text_body
   end
 
   def new

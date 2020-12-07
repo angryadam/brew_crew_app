@@ -1,4 +1,6 @@
 #user-posts-index {
+  #index-heading { color: $white; }
+
   #posts-container {
 	margin-top: 1em;
 
@@ -21,7 +23,9 @@
 }
 
 #user-posts-new, #user-posts-edit {
-  padding: 3em 15em;
+  margin: 0 10em;
+  padding: 3em 8em;
+  background-color: $white;
 }
 
 #user-posts-show {
