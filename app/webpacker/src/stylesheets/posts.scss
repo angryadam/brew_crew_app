@@ -25,9 +25,11 @@
 }
 
 #user-posts-show {
-  padding: 3em 15em;
-  background-color: $white;
-  height: 100vh;
+  @include white-card-with-shadow;
+
+  margin: 0 10em;
+  padding: 3em 8em;
+  height: 100%;
 
   #byline {
 	color: $diminished-grey;

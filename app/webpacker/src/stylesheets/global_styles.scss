@@ -26,12 +26,11 @@ $danger: $danger-red;
 $navbar-background-color: $eerie-black;
 $body-background-color: $mercury;
 
-$header-and-foot-height: 274px;
+$header-and-footer-height: 96px;
 
 @mixin white-card-with-shadow {
-  padding: 2em;
-  background: white;
-  box-shadow: 3px 3px 1em $box-shadow-grey;
+  background: $white;
+  box-shadow: 3px 3px 1em $eerie-black;
   border-radius: 6px;
 }
 
@@ -52,9 +51,9 @@ a.button.is-text {
 }
 
 #main-container {
-  min-height: calc(100vh - #{$header-and-foot-height});
-  margin-top: 1em;
-  margin-bottom: 2em;
+  min-height: calc(100vh - #{$header-and-footer-height});
+  margin-top: 2em;
+  padding-bottom: 2em;
 }
 
 ::placeholder {
