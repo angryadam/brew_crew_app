@@ -26,7 +26,7 @@ $danger: $danger-red;
 $navbar-background-color: $eerie-black;
 $body-background-color: $mercury;
 
-$header-and-footer-height: 96px;
+$header-and-footer-height: 140px;
 
 @mixin white-card-with-shadow {
   background: $white;
@@ -81,5 +81,20 @@ trix-editor {
   &:focus {
     border-color: $lightning-yellow;
     box-shadow: 0 0 0 0.125em rgba(252, 194, 18, 0.25);
+  }
+}
+
+footer.footer {
+  background-color: $eerie-black;
+  padding: 1rem 1.5rem;
+  color: $white;
+  strong { color: $lightning-yellow; }
+  a {
+    color: $white;
+    text-decoration: underline solid transparent;
+
+    &:hover {
+      text-decoration: underline solid $lightning-yellow ;
+    }
   }
 }
