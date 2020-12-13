@@ -1,15 +1,7 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+<div id="clearance" class="sign-up columns is-centered">
+  <div class="box column is-two-fifths">
+    <h2 class="title is-4"><%= t(".title") %></h2>
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
-
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
+    <%= render partial: '/users/form' %>
+  </div>
 </div>

@@ -1,19 +1,27 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
+<%= form_with model: @user do |form| %>
+  <div class="text-field field">
+    <div class="control has-icons-left">
+      <%= form.text_field :email, type: 'email', class: 'input', placeholder: 'email' %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+  </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+  <div class="password-field field">
+    <div class="control has-icons-left">
+      <%= form.password_field :password, type: 'password', class: 'input', placeholder: 'password' %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </div>
+  </div>
 
-<div class="text-field">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
-</div>
+  <div class="submit-field">
+    <%= form.submit class: 'button is-primary' %>
+  </div>
 
-<div class="text-field">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
-</div>
+  <div class="other-links has-text-centered">
+    <%= link_to 'Sign In', sign_in_path %>
+  </div>
+<% end %>

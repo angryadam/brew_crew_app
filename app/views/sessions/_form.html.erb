@@ -1,16 +1,24 @@
-<%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+<%= form_with scope: :session, url: session_path do |form| %>
+  <div class="text-field field">
+    <div class="control has-icons-left">
+      <%= form.text_field :email, type: 'email', class: 'input', placeholder: 'email' %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
   </div>
 
-  <div class="password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class="password-field field">
+    <div class="control has-icons-left">
+      <%= form.password_field :password, type: 'password', class: 'input', placeholder: 'password' %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </div>
   </div>
 
-  <div class="submit-field">
-    <%= form.submit %>
+  <div class="submit-field field">
+    <%= form.submit class: 'button is-primary' %>
   </div>
 
   <div class="other-links">
