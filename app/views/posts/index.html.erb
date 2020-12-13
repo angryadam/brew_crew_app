@@ -1,5 +1,5 @@
 <div id="user-posts-index">
-  <h2 class="is-size-2" id="index-heading">Your Posts</h2>
+  <h2 class="is-size-2" id="index-heading"><%= index_title_text(is_poster: current_user.poster?) %></h2>
   <div class="columns is-multiline" id="posts-container">
     <% @posts.each do |post| %>
       <div class="column is-one-third">
@@ -14,13 +14,18 @@
           <nav class="level">
             <div class="level-left"></div>
             <div class="level-right">
-              <%= link_to edit_crew_user_post_path(@crew, current_user, post),
-                          class: 'button is-link' do %>
-                <i class="fas fa-edit"></i>
+              <% if policy(post).edit? %>
+                <%= link_to edit_crew_user_post_path(@crew, current_user, post),
+                            class: 'button is-link' do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
               <% end %>
-              <%= link_to crew_user_post_path(@crew, current_user, post),
-                          method: :delete, class: 'button is-text' do %>
-                <i class="fas fa-trash"></i>
+
+              <% if policy(post).destroy? %>
+                <%= link_to crew_user_post_path(@crew, current_user, post),
+                            method: :delete, class: 'button is-text' do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
               <% end %>
             </div>
           </nav>

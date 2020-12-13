@@ -35,8 +35,11 @@ gem 'name_of_person'
 # For API requests
 gem 'httparty'
 
-# To access Unsplash API
+# Access Unsplash API
 gem 'unsplash'
+
+# Authorization management
+gem 'pundit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
