@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   # before_action :check_if_signed_in
+  before_action :get_user_crew
   before_action :set_post, except: [:index, :new, :create]
 
   def index
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       flash[:success] = "\"#{@post.title}\" is now live! 🎉"
-      redirect_to user_posts_path(current_user)
+      redirect_to crew_user_posts_path(@crew, current_user)
     else
       render :new
     end
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:success] = "\"#{@post.title}\" has been updated!"
-      redirect_to user_posts_path(current_user)
+      redirect_to crew_user_posts_path(@crew, current_user)
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     if @post.destroy
       flash[:notice] = "\"#{@post.title}\" has been deleted!"
-      redirect_to user_posts_path(current_user)
+      redirect_to crew_user_posts_path(@crew, current_user)
     end
   end
 

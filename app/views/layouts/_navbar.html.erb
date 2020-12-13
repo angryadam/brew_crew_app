@@ -10,12 +10,12 @@
     <div class="navbar-end">
       <% if signed_in? %>
         <div class="navbar-item">
-          <%= link_to user_posts_path(current_user), class: 'button is-light' do %>
+          <%= link_to crew_user_posts_path(@crew, current_user), class: 'button is-light' do %>
             <i class="fas fa-home"></i>
           <% end %>
         </div>
         <div class="navbar-item">
-          <%= link_to new_user_post_path(current_user), class: 'button is-primary' do %>
+          <%= link_to new_crew_user_post_path(@crew, current_user), class: 'button is-primary' do %>
             <i class="fas fa-pen-nib"></i>
             <i class="fas fa-plus"></i>
           <% end %>

@@ -5,7 +5,7 @@
       <div class="column is-one-third">
         <div class="box">
           <h4 class="post-title is-size-4">
-            <%= link_to post.title.truncate(30), user_post_path(current_user, post) %>
+            <%= link_to post.title.truncate(30), crew_user_post_path(@crew, current_user, post) %>
           </h4>
           <p class="date-posted"><%= format_datetime(post.created_at) %></p>
           <hr>
@@ -14,11 +14,11 @@
           <nav class="level">
             <div class="level-left"></div>
             <div class="level-right">
-              <%= link_to edit_user_post_path(current_user, post),
+              <%= link_to edit_crew_user_post_path(@crew, current_user, post),
                           class: 'button is-link' do %>
                 <i class="fas fa-cog"></i>
               <% end %>
-              <%= link_to user_post_path(current_user, post),
+              <%= link_to crew_user_post_path(@crew, current_user, post),
                           method: :delete, class: 'button is-text' do %>
                 <i class="fas fa-trash"></i>
               <% end %>
