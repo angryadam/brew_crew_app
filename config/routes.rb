@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :posts
   end
+
+  resources :images, only: [] do
+    collection do
+      post :search_unsplash
+    end
+  end
 end

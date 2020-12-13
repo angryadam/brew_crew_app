@@ -1,6 +1,10 @@
 class Image < ApplicationRecord
   validates :image_url, presence: true
 
+  def self.default_background_image
+    Unsplash::Photo.find('08tX2fsuSLg')
+  end
+
   def self.credit
     if false #(image = Unsplash::Photo.find('08tX2fsuSLg'))
       OpenStruct.new(name: image.user.name,

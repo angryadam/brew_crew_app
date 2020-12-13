@@ -2,7 +2,9 @@
   <%= render 'layouts/error_messages', obj: @post %>
   <h2 class="is-size-2">New Post</h2>
 
-  <%= form_with model: [current_user, Post.new], local: true do |f| %>
-    <%= render 'form', f: f %>
-  <% end %>
+  <%= render 'unsplash_search_form' %>
+
+  <hr>
+
+  <%= render 'form' %>
 </div>

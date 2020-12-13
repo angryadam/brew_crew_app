@@ -1,0 +1,17 @@
+.unsplash-image-container {
+  min-height: 12em;
+
+  .unsplash-background-image {
+	&:hover {
+	  cursor: pointer;
+	}
+  }
+}
+
+#image-modal-content {
+  width: auto;
+
+  .image img {
+	max-height: calc(100vh - 40px);
+  }
+}
