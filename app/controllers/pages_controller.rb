@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   # before_action :check_if_signed_in
-  before_action :get_user_crew
 
   def intro
   end

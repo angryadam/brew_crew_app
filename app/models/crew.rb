@@ -6,6 +6,6 @@ class Crew < ApplicationRecord
   validates :join_code, :name, uniqueness: true
 
   def to_param
-    name.downcase.strip
+    name.downcase.gsub(/\s+/, '')
   end
 end

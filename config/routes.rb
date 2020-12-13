@@ -11,9 +11,18 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  root to: "pages#welcome"
+
+  constraints Clearance::Constraints::SignedIn.new do
+    root to: "posts#index", as: :signed_in_root
+  end
+
+  constraints Clearance::Constraints::SignedOut.new do
+    root to: "pages#welcome"
+  end
 
   resources :crews, path: '', only: [] do
+    resources :posts, only: :index
+
     resources :users, path: '', only: [] do
       resources :posts
     end

@@ -28,10 +28,7 @@
         </div>
       <% else %>
         <div class="navbar-item">
-          <%= link_to sign_up_path, class: 'button is-primary' do %>
-            <i class="fas fa-user-plus"></i>
-            <p>Sign Up</p>
-          <% end %>
+          <%= link_to 'Join', sign_up_path, class: 'button is-primary' %>
         </div>
         <div class="navbar-item">
           <%= link_to 'Sign In', sign_in_path, class: 'button is-light' %>

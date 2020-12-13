@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  # before_action :check_if_signed_in
+  before_action :require_login
   before_action :get_user_crew
   before_action :set_post, except: [:index, :new, :create]
 
   def index
-    @posts = Post.where(user: current_user).order(id: :desc).with_rich_text_body
+    @posts = current_user.posts.order(id: :desc).with_rich_text_body
   end
 
   def new
