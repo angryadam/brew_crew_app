@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def footer_credit_links(post:)
-    background_image = post ? post.background_image : BackgroundImage.default
+    background_image = post ? (post.background_image if post.persisted?) : BackgroundImage.default
 
     if background_image
       sanitize(" | Background by #{ link_to(background_image.attribution_name, background_image.attribution_url, target: :_blank) } " +
