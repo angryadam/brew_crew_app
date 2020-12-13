@@ -48,7 +48,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body,
-                                 background_image_attributes: [:id, :image_url])
+                                 background_image_attributes: [:id, :image_url,
+                                                               :attribution_name,
+                                                               :attribution_url])
   end
 
   def set_post

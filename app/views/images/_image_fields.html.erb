@@ -1,6 +1,7 @@
 <div class="column is-one-third">
   <div class="unsplash-image-container">
-    <img class="unsplash-background-image" src=<%= result.urls.regular %>>
+    <%= image_tag result.urls.regular, class: 'unsplash-background-image',
+                  data: { attr_name: result.user.name, attr_url: result.user.links.html  }  %>
   </div>
   <%= button_tag 'Select', class: 'button select-background-image-button' %>
 </div>

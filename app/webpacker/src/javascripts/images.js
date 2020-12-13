@@ -10,6 +10,8 @@ $(document).on('click',   ".select-background-image-button", function() {
   $('.column').not($(this).parent('.column')).fadeOut()
   $(this).fadeOut()
   $("input[name='post[background_image_attributes][image_url]']").val(backgroundImage.attr('src'))
+  $("input[name='post[background_image_attributes][attribution_name]']").val(backgroundImage.data('attrName'))
+  $("input[name='post[background_image_attributes][attribution_url]']").val(backgroundImage.data('attrUrl'))
 });
 
 $(document).on('click', ".modal", function() {

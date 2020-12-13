@@ -1,4 +1,4 @@
-<div id="user-posts-show">
+<div class="box" id="user-posts-show">
   <h1 class="title is-size-1"><%= @post.title %></h1>
   <h5 class="subtitle is-size-5" id="byline">
     <%= byline_text(name: @post.posted_by.name.familiar, created_at: @post.created_at) %>

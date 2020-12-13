@@ -28,12 +28,6 @@ $body-background-color: $mercury;
 
 $header-and-footer-height: 140px;
 
-@mixin white-card-with-shadow {
-  background: $white;
-  box-shadow: 3px 3px 1em $eerie-black;
-  border-radius: 6px;
-}
-
 .navbar.is-fixed-top {
   border-bottom: 2px solid $lightning-yellow;
 }
