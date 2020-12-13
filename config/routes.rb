@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   root to: "pages#welcome"
 
-  resources :crews, only: [] do
-    resources :users, only: [] do
+  resources :crews, path: '', only: [] do
+    resources :users, path: '', only: [] do
       resources :posts
     end
   end
