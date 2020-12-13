@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
+  constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
+    root to: "posts#index", as: :admin_root
+  end
+
   constraints Clearance::Constraints::SignedIn.new do
     root to: "posts#index", as: :signed_in_root
   end

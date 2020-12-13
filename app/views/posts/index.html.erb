@@ -7,7 +7,7 @@
           <h4 class="post-title is-size-4">
             <%= link_to post.title.truncate(30), crew_user_post_path(@crew, current_user, post) %>
           </h4>
-          <p class="date-posted"><%= format_datetime(post.created_at) %></p>
+          <p class="byline"><%= byline_text(name: post.posted_by.name.familiar, created_at: post.created_at) %></p>
           <hr>
           <p><%= truncate(post.body.to_plain_text, length: 180) %></p>
 
