@@ -60,10 +60,8 @@ class PostsController < ApplicationController
   def go_live
     authorize @post
 
-    if @post.update(live: true)
-      flash[:notice] = "\"#{@post.title}\" is now live and viewable! 🎉"
-      redirect_to crew_user_posts_path(@crew, current_user)
-    end
+    @post.update(live: true)
+    #   flash[:notice] = "\"#{@post.title}\" is now live and viewable! 🎉"
   end
 
   def archive

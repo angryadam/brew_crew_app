@@ -13,7 +13,7 @@
           <div class="level-left">
             <% if policy(post).go_live? && !(post.live? || post.archived?) %>
               <%= link_to 'Go Live!', go_live_crew_user_post_path(@crew, current_user, post),
-                          method: :post, class: 'button is-primary' %>
+                          data: { behavior: 'go-live' }, class: 'button is-primary' %>
             <% end %>
           </div>
           <div class="level-right">
