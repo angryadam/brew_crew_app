@@ -54,10 +54,7 @@ class PostsController < ApplicationController
   def destroy
     authorize @post
 
-    if @post.destroy
-      flash[:notice] = "\"#{@post.title}\" has been deleted!"
-      redirect_to crew_user_posts_path(@crew, current_user)
-    end
+    @post.destroy
   end
 
   def go_live
@@ -72,10 +69,7 @@ class PostsController < ApplicationController
   def archive
     authorize @post
 
-    # if @post.update(archive: true)
-      flash[:notice] = "\"#{@post.title}\" is now archived and hidden!"
-      redirect_to crew_user_posts_path(@crew, current_user)
-    # end
+    @post.update(archived: true)
   end
 
   private
