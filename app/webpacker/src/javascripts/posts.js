@@ -1,6 +1,25 @@
 import Swal from 'sweetalert2'
 
 $(document).on('turbolinks:load', function() {
+  $("[data-behavior='go-live']").click(function(e) {
+    e.preventDefault()
+    let button = $(this)[0]
+    let containerColumn = $(this).closest('.column')
+    $.ajax({
+      url: $(this).attr("href"),
+      dataType: "JSON",
+      method: "POST",
+      success: function() {
+        $(button).fadeOut('slow')
+        containerColumn.fadeOut('slow', function() {
+          $('.posts-container').first().prepend(containerColumn)
+          containerColumn.fadeIn('slow')
+        })
+      }
+    });
+  })
+})
+$(document).on('turbolinks:load', function() {
   $("[data-behavior='delete']").click(function(e) {
     e.preventDefault()
     Swal.fire({
