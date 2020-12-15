@@ -1,36 +1,13 @@
 <div id="user-posts-index">
   <h2 class="is-size-2" id="index-heading"><%= index_title_text(is_poster: current_user.poster?) %></h2>
-  <div class="columns is-multiline" id="posts-container">
-    <% @posts.each do |post| %>
-      <div class="column is-one-third">
-        <div class="box">
-          <h4 class="post-title is-size-4">
-            <%= link_to post.title.truncate(30), crew_user_post_path(@crew, current_user, post) %>
-          </h4>
-          <p class="byline"><%= byline_text(name: post.posted_by.name.familiar, created_at: post.created_at) %></p>
-          <hr>
-          <p><%= truncate(post.body.to_plain_text, length: 180) %></p>
 
-          <nav class="level">
-            <div class="level-left"></div>
-            <div class="level-right">
-              <% if policy(post).edit? %>
-                <%= link_to edit_crew_user_post_path(@crew, current_user, post),
-                            class: 'button is-link' do %>
-                  <i class="fas fa-edit"></i>
-                <% end %>
-              <% end %>
+  <% if current_user.poster? %>
+    <h4 class="is-size-4 index-subheading">Live</h4>
+  <% end %>
+  <%= render 'posts_section', posts: @live_posts %>
 
-              <% if policy(post).destroy? %>
-                <%= link_to crew_user_post_path(@crew, current_user, post),
-                            method: :delete, class: 'button is-text' do %>
-                  <i class="fas fa-trash"></i>
-                <% end %>
-              <% end %>
-            </div>
-          </nav>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <% if @in_progress_posts %>
+    <h4 class="is-size-4 index-subheading">In-Progress</h4>
+    <%= render 'posts_section', posts: @in_progress_posts %>
+  <% end %>
 </div>

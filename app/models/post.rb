@@ -13,6 +13,11 @@ class Post < ApplicationRecord
 
   before_validation :add_default_text
 
+  default_scope { order(created_at: :desc) }
+  scope :in_progress, -> { where(live: false, archived: false) }
+  scope :live, -> { where(live: true) }
+  scope :archived, -> { where(archived: true) }
+
   private
 
   def add_default_text

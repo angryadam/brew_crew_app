@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_184249) do
+ActiveRecord::Schema.define(version: 2020_12_14_070332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_12_13_184249) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "live", default: false, null: false
+    t.boolean "archived", default: false, null: false
     t.index ["title"], name: "index_posts_on_title"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -88,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_184249) do
     t.bigint "crew_id"
     t.boolean "admin", default: false, null: false
     t.boolean "crew_admin", default: false, null: false
-    t.boolean "poster", default: true, null: false
+    t.boolean "poster", default: false, null: false
     t.index ["crew_id"], name: "index_users_on_crew_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"

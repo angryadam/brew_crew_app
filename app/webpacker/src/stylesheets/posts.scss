@@ -1,9 +1,10 @@
 #user-posts-index {
   #index-heading { color: $white; }
+  .index-subheading {
+	color: $mercury;
+  }
 
-  #posts-container {
-	margin-top: 1em;
-
+  .posts-container {
 	.post-title a {
 	  text-decoration: underline solid transparent;
 
@@ -13,11 +14,10 @@
 	}
 
 	.box {
-	  min-height: 18em;
+	  min-height: 15em;
 
-	  .byline {
-		color: $diminished-grey;
-	  }
+	  .byline { color: $diminished-grey; }
+	  .level { margin-top: 1em; }
 	}
   }
 }

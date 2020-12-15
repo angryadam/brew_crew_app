@@ -17,6 +17,14 @@ class PostPolicy < ApplicationPolicy
     user.admin? || user.crew_admin? || post_belongs_to_user?
   end
 
+  def go_live?
+    user.admin? || user.crew_admin? || post_belongs_to_user?
+  end
+
+  def archive?
+    post_belongs_to_user?
+  end
+
   private
 
   attr_reader :post

@@ -1,15 +1,17 @@
 class PostsController < ApplicationController
   before_action :require_login
   before_action :get_user_crew
-  before_action :set_post, except: [:index, :new, :create]
+  before_action :set_post, except: [:index, :new, :create, :show]
+  before_action :set_live_post, only: :show
+
 
   def index
     if current_user.poster?
-      @posts = current_user.posts.order(id: :desc).with_rich_text_body
+      @live_posts = current_user.posts.live.with_rich_text_body
+      @in_progress_posts = current_user.posts.in_progress.with_rich_text_body
     else
-      @posts = @crew.posts.order(id: :desc).with_rich_text_body
+      @live_posts = @crew.posts.live.with_rich_text_body
     end
-
   end
 
   def new
@@ -24,7 +26,7 @@ class PostsController < ApplicationController
 
     authorize @post
     if @post.save
-      flash[:success] = "\"#{@post.title}\" is now live! 🎉"
+      flash[:success] = "\"#{@post.title}\" has been created!"
       redirect_to crew_user_posts_path(@crew, current_user)
     else
       render :new
@@ -58,6 +60,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def go_live
+    authorize @post
+
+    if @post.update(live: true)
+      flash[:notice] = "\"#{@post.title}\" is now live and viewable! 🎉"
+      redirect_to crew_user_posts_path(@crew, current_user)
+    end
+  end
+
+  def archive
+    authorize @post
+
+    # if @post.update(archive: true)
+      flash[:notice] = "\"#{@post.title}\" is now archived and hidden!"
+      redirect_to crew_user_posts_path(@crew, current_user)
+    # end
+  end
+
   private
 
   def post_params
@@ -68,6 +88,24 @@ class PostsController < ApplicationController
   end
 
   def set_post
+    unless @post = @crew.posts.find_by(id: params[:id])
+      flash[:error] = 'Unable to find that post, please verify and try again.'
+      redirect_to crew_user_posts_path(@crew, current_user)
+    end
+  end
+
+  def set_live_post
+    # to allow posters to view before it goes live
     @post = Post.find_by(id: params[:id])
+    if @post
+      return if @post.posted_by == current_user
+      unless @post.live?
+        flash[:error] = 'Unable to find that post, please verify and try again.'
+        redirect_to crew_user_posts_path(@crew, current_user)
+      end
+    else
+      flash[:error] = 'Unable to find that post, please verify and try again.'
+      redirect_to crew_user_posts_path(@crew, current_user)
+    end
   end
 end

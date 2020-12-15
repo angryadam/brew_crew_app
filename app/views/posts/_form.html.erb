@@ -18,15 +18,22 @@
     <%= ff.hidden_field :attribution_name %>
     <%= ff.hidden_field :attribution_url %>
   <% end %>
-
-  <div class="field is-grouped">
-    <div class="control">
-      <%= f.submit 'Post!',
-                   class: 'button is-primary' %>
-    </div>
-    <div class="control">
+  
+  <nav class="level">
+    <div class="level-left">
+      <%= f.submit 'Save', class: 'button is-primary' %>
       <%= link_to 'Cancel', crew_user_posts_path(@crew, current_user),
                   class: 'button is-text' %>
     </div>
-  </div>
+    <div class="level-right">
+      <% if @post.persisted? %>
+        <% if policy(@post).archive? && !@post.archived? %>
+          <%= link_to archive_crew_user_post_path(@crew, current_user, @post),
+                      method: :post, class: 'button is-text' do %>
+            <i class="fas fa-archive"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </nav>
 <% end %>

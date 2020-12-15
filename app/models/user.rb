@@ -5,6 +5,8 @@ class User < ApplicationRecord
   belongs_to :crew
   has_many :posts, dependent: :destroy
 
+  validates :first_name, :last_name, presence: true
+
   def to_param
     (first_name.first + last_name).downcase
   end

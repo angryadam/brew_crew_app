@@ -3,7 +3,7 @@ module PostHelper
     is_poster ? 'Your Posts' : 'Posts'
   end
 
-  def byline_text(name:, created_at:)
-    "by #{name} at #{format_datetime(created_at)}"
+  def byline_text(name:, updated_at:)
+    "by #{name} at #{format_datetime(updated_at)}"
   end
 end
