@@ -1,5 +1,6 @@
 <div id="user-posts-index">
-  <h2 class="is-size-2" id="index-heading"><%= index_title_text(is_poster: current_user.poster?) %></h2>
+  <h2 class="is-size-2" id="index-heading"><%= index_title_text(is_poster: current_user.poster?,
+                                                                crew_name: @crew.name) %></h2>
 
   <% if current_user.poster? %>
     <h4 class="is-size-4 index-subheading">Live</h4>

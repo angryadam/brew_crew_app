@@ -1,10 +1,15 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" id="advent-beer-navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <%= link_to root_path, class: "navbar-item is-size-3", style: "color: white;" do %>
       <i class="fas fa-gifts"></i>
       <i class="fas fa-beer"></i>
       AdventBeer.com
     <% end %>
+    <a role="button" class="navbar-burger burger">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
   <div class="navbar-menu">
     <div class="navbar-end">

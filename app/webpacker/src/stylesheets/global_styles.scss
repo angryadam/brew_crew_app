@@ -51,7 +51,7 @@ a.button.is-text {
 #main-container {
   min-height: calc(100vh - #{$header-and-footer-height});
   margin-top: 2em;
-  padding-bottom: 2em;
+  padding: 1.5rem;
 }
 
 ::placeholder {

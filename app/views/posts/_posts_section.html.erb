@@ -1,6 +1,6 @@
 <div class="columns is-multiline posts-container">
   <% posts.each do |post| %>
-    <div class="column is-one-third">
+    <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
       <div class="box">
         <h4 class="post-title is-size-4">
           <%= link_to post.title.truncate(30), crew_user_post_path(@crew, current_user, post) %>
@@ -9,7 +9,7 @@
         <hr>
         <p><%= truncate(post.body.to_plain_text, length: 120) %></p>
 
-        <nav class="level">
+        <nav class="level is-mobile">
           <div class="level-left">
             <% if policy(post).go_live? && !(post.live? || post.archived?) %>
               <%= link_to 'Go Live!', go_live_crew_user_post_path(@crew, current_user, post),

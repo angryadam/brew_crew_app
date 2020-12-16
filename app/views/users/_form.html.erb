@@ -1,29 +1,38 @@
-<%= form_with model: @user do |form| %>
+<%= form_with model: @user, local: true do |form| %>
   <div class="text-field field">
+    <label class="label">Crew Code</label>
     <div class="control has-icons-left">
-      <%= form.text_field :crew_join_code, class: 'input',
-                          placeholder: 'join code', required: true %>
+      <%= form.text_field :crew_join_code, class: 'input is-large',
+                          placeholder: 'crew code', required: true %>
       <span class="icon is-small is-left">
         <i class="fas fa-user-secret"></i>
       </span>
     </div>
   </div>
 
-  <div class="text-field field is-grouped">
-    <div class="control has-icons-left">
-      <%= form.text_field :first_name, class: 'input',
-                          placeholder: 'first name', required: true %>
-      <span class="icon is-small is-left">
+  <hr>
+
+  <div class="text-field field">
+    <nav class="level">
+      <div class="level-item">
+      <div class="control has-icons-left">
+        <%= form.text_field :first_name, class: 'input',
+                            placeholder: 'first name', required: true %>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+      </div>
+      <div class="level-item">
+        <div class="control has-icons-left">
+          <%= form.text_field :last_name, class: 'input',
+                              placeholder: 'last name', required: true %>
+          <span class="icon is-small is-left">
         <i class="fas fa-user"></i>
       </span>
-    </div>
-    <div class="control has-icons-left">
-      <%= form.text_field :last_name, class: 'input',
-                          placeholder: 'last name', required: true %>
-      <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
-      </span>
-    </div>
+        </div>
+      </div>
+    </nav>
   </div>
 
   <div class="text-field field">

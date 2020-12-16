@@ -23,8 +23,30 @@
 }
 
 #user-posts-new, #user-posts-edit {
-  margin: 0 10em;
-  padding: 3em 8em;
+  @import '~bulma/sass/utilities/initial-variables';
+  @import '~bulma/sass/utilities/derived-variables';
+  @import "~bulma/sass/utilities/mixins";
+
+  @include fullhd {
+	margin: 0 10em;
+	padding: 3em 8em;
+  }
+  @include widescreen-only {
+	margin: 0 6em;
+	padding: 3em 8em;
+  }
+  @include desktop-only {
+	margin: 0 4em;
+	padding: 3em 4em;
+  }
+  @include tablet-only {
+	margin: 0 6em;
+	padding: 3em 4em;
+  }
+  @include mobile {
+	margin: 0;
+	padding: 3em 3em;
+  }
 
   #unsplash-results {
 	margin: 1em 0 2em;
@@ -32,10 +54,31 @@
 }
 
 #user-posts-show {
-  //@include white-card-with-shadow;
+  @import '~bulma/sass/utilities/initial-variables';
+  @import '~bulma/sass/utilities/derived-variables';
+  @import "~bulma/sass/utilities/mixins";
 
-  margin: 0 10em;
-  padding: 3em 8em;
+  @include fullhd {
+	margin: 0 10em;
+	padding: 3em 8em;
+  }
+  @include widescreen-only {
+	margin: 0 6em;
+	padding: 3em 8em;
+  }
+  @include desktop-only {
+	margin: 0 4em;
+	padding: 3em 6em;
+  }
+  @include tablet-only {
+	margin: 0 6em;
+	padding: 3em 4em;
+  }
+  @include mobile {
+	margin: 0;
+	padding: 3em 3em;
+  }
+
   height: 100%;
 
   #byline {
