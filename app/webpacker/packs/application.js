@@ -15,6 +15,7 @@ import "@fortawesome/fontawesome-free/js/all"
 require("src/javascripts/global")
 require("src/javascripts/images")
 require("src/javascripts/posts")
+require("src/javascripts/comments")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

@@ -3,8 +3,8 @@
   <h5 class="subtitle is-size-5" id="byline">
     <%= byline_text(name: @post.posted_by.name.familiar, updated_at: @post.updated_at) %>
   </h5>
-
   <hr>
-
   <p><%= @post.body %></p>
+  <hr>
+  <%= render 'comment_section' %>
 </div>

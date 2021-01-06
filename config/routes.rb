@@ -35,6 +35,7 @@ Rails.application.routes.draw do
           post :go_live
           post :archive
         end
+        resources :comments, only: [:create, :destroy]
       end
     end
   end

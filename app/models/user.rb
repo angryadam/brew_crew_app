@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   belongs_to :crew
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
 

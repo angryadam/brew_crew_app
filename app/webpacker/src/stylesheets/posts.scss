@@ -84,4 +84,33 @@
   #byline {
 	color: $diminished-grey;
   }
+
+  .panel {
+	.panel-heading {
+	  &:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	  }
+	}
+	#post-comments {
+	  display: none;
+	  .level { margin-bottom: 0.5em; }
+	}
+  }
+
+  #add-comment-button {
+	color: #b5b5b5;
+	text-decoration: none;
+
+	.fa-plus { margin-right: .5em; }
+
+	&:hover {
+	  color: #363636;
+	}
+  }
+
+  #create-comment-form {
+	margin-top: 1em;
+	display: none;
+  }
 }

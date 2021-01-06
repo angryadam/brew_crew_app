@@ -16,10 +16,9 @@ $(document).on('turbolinks:load', function() {
           containerColumn.fadeIn('slow')
         })
       }
-    });
+    })
   })
-})
-$(document).on('turbolinks:load', function() {
+
   $("[data-behavior='delete']").click(function(e) {
     e.preventDefault()
     Swal.fire({
@@ -53,7 +52,7 @@ $(document).on('turbolinks:load', function() {
     Swal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to restore this...',
-      icon: 'warning',
+      icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Yes, archive it!',
       cancelButtonText: 'No, keep it'
@@ -81,24 +80,4 @@ $(document).on('turbolinks:load', function() {
       }
     })
   })
-
-  // document.body.addEventListener('ajax:success', function(event) {
-  //   var message = event.detail[0]['message']
-  //   Swal.fire('Hooray!', message, 'success')
-  // });
-  // document.body.addEventListener('ajax:error', function(event) {
-  //   var message = event.detail[0]['message']
-  //   Swal.fire('Oops...', message, 'error')
-  // });
-  //
-  // $(".provider-action-button").click(function(e) {
-  //   e.preventDefault()
-  //   var svg = $(this).find('svg')
-  //   if (svg.hasClass('fa-angle-down')) {
-  //     svg.removeClass('fa-angle-down').addClass('fa-angle-up')
-  //   } else {
-  //     svg.removeClass('fa-angle-up').addClass('fa-angle-down')
-  //   }
-  //   $(this).closest('.provider-container').find('.chart-container').slideToggle(200)
-  // });
 });
