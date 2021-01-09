@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
     root to: "posts#index", as: :admin_root
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   constraints Clearance::Constraints::SignedIn.new do

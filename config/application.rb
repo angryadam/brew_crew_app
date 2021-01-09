@@ -31,5 +31,8 @@ module Project
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # use sidekiq for ActiveJob
+    config.active_job.queue_adapter = :sidekiq
   end
 end
