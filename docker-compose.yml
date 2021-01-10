@@ -25,7 +25,7 @@ services:
       - db
       - redis
     build: .
-    command: bundle exec sidekiq
+    command: bundle exec sidekiq -q default -q mailers
     volumes:
       - bundle:/bundle
       - .:/project

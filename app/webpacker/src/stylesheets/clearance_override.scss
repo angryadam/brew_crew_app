@@ -1,0 +1,14 @@
+#clearance {
+  .column {
+	padding: 2em;
+  }
+  &.sign-in {
+	.column {
+	  .other-links {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 2em;
+	  }
+	}
+  }
+}
