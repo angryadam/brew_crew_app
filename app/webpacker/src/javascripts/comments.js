@@ -31,12 +31,11 @@ $(document).on('turbolinks:load', function() {
             Swal.fire('Deleted!', 'Your comment is gone forever ☠️', 'success')
           },
           error: function() {
-            Swal.fire("Unable to delete \n your comment \n reload the page \n and try again",
-                '', 'warning')
+            Swal.fire('Unable to delete', 'Please reload the page and try again', 'warning')
           }
         });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire("Your comment is safe... for now 😎", '', 'info')
+        Swal.fire('', 'Your comment is safe... for now 😎', 'info')
       }
     })
   })

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Nunito:wght@400;700&display=swap');
 
 // AdventBeer.com brand colors
 $white: #FFFFFF;
@@ -15,7 +15,7 @@ $box-shadow-grey: #dedede;
 $diminished-grey: #b5b5b5;
 
 // Update Bulma's global variables
-$family-sans-serif: 'Chivo', sans-serif;
+$family-sans-serif: 'Nunito', sans-serif;
 $primary: $lightning-yellow;
 $grey-dark: $eerie-black; // also text color
 $link: $big-stone;
@@ -27,6 +27,11 @@ $navbar-background-color: $eerie-black;
 $body-background-color: $mercury;
 
 $header-and-footer-height: 140px;
+
+.navbar-brand, .post-title, #post_title, .panel-heading,
+#index-heading, .index-subheading, #swal2-title, h2 {
+  font-family: 'Patua One', serif;
+}
 
 .navbar.is-fixed-top {
   border-bottom: 2px solid $lightning-yellow;

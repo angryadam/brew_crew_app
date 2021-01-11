@@ -42,7 +42,7 @@ $(document).on('turbolinks:load', function() {
           }
         });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(`"${headerText}" is safe... for now 😎`, '', 'info')
+        Swal.fire(headerText, 'is safe... for now 😎', 'info')
       }
     })
   })
@@ -59,11 +59,11 @@ $(document).on('turbolinks:load', function() {
     }).then((result) => {
       let parentContainer = $(this).closest('.column')
       let headerText = parentContainer.find('h4').text()
-      let foobar = ''
+      let msgText = ''
       if (headerText.length) {
-        foobar = `"${headerText}" is now hidden 🙈`
+        msgText = `"${headerText}" is now archived 🔒`
       } else {
-        foobar = `This post is now hidden 🙈`
+        msgText = 'This post is now archived 🔒'
       }
       if (result.value) {
         $.ajax({
@@ -72,11 +72,11 @@ $(document).on('turbolinks:load', function() {
           method: "POST",
           success: function() {
             parentContainer.fadeOut(600)
-            Swal.fire('Archived!', foobar, 'success')
+            Swal.fire('Archived!', msgText, 'success')
           }
         });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(`"${headerText}" is visible... for now 👀`, '', 'info')
+        Swal.fire(headerText, 'is visible... for now 👀', 'info')
       }
     })
   })
