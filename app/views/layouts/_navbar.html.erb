@@ -2,10 +2,11 @@
      role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <%= link_to root_path, class: "navbar-item is-size-3", style: "color: white;" do %>
-        <i class="fas fa-gifts"></i>
-        <i class="fas fa-beer"></i>
-        AdventBeer.com
+      <%= link_to root_path, class: "navbar-item is-size-3", id: "navbar-logo" do %>
+        <span id="navbar-logo">
+          <i class="fas fa-gifts"></i>
+          <i class="fas fa-beer"></i>
+        </span>
       <% end %>
       <a role="button" class="navbar-burger burger">
         <span aria-hidden="true"></span>

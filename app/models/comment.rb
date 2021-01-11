@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
   private
 
   def add_default_text
-    return unless self.text.blank?
+    return unless self.text.blank? && Rails.env.development?
 
     self.text = Api::HipsterIpsum.default_text
   end

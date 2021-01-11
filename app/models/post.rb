@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   private
 
   def add_default_text
-    return unless self.body.blank?
+    return unless self.body.blank? && Rails.env.development?
 
     self.body = Api::HipsterIpsum.default_text
   end

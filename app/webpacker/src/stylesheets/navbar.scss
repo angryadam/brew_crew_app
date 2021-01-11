@@ -1,4 +1,17 @@
 #advent-beer-navbar {
+  .navbar-item {
+    padding: .5rem .75rem;
+  }
+
+  #navbar-logo {
+    color: $mercury;
+    transition: background-color .3s ease;
+
+    &:hover {
+      background-color: $big-stone;
+    }
+  }
+
   .navbar-burger {
     color: $lightning-yellow;
     margin-right: 1em;

@@ -1,0 +1,37 @@
+#welcome {
+  .hero {
+	.container {
+	  background-color: rgba(36, 36, 35, 0.6);
+
+	  .title {
+		@import '~bulma/sass/utilities/initial-variables';
+		@import '~bulma/sass/utilities/derived-variables';
+		@import '~bulma/sass/utilities/mixins';
+
+		@include mobile {
+		  font-size: 2.5rem;
+		}
+		@include tablet-only {
+		  font-size: 3rem;
+		}
+		color: $mercury;
+		font-size: 5rem;
+		line-height: 0;
+
+		.highlight-text {
+		  @include mobile {
+			font-size: 5.5rem;
+		  }
+		  @include tablet-only {
+			font-size: 8rem;
+		  }
+
+		  font-family: 'Patua One', sans-serif;
+		  font-size: 10rem;
+		  color: $lightning-yellow;
+		  line-height: 1.65em;
+		}
+	  }
+	}
+  }
+}
