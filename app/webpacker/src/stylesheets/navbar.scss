@@ -1,4 +1,8 @@
 #advent-beer-navbar {
+  @import '~bulma/sass/utilities/initial-variables';
+  @import '~bulma/sass/utilities/derived-variables';
+  @import '~bulma/sass/utilities/mixins';
+
   .navbar-item {
     padding: .5rem .75rem;
   }
@@ -18,6 +22,18 @@
     margin-top: 5px;
 
     span { height: 2px; }
+  }
+
+  .navbar-end {
+    @include touch {
+      text-align: center;
+    }
+
+    .navbar-item {
+      @include touch {
+        display: inline-block;
+      }
+    }
   }
 }
 
