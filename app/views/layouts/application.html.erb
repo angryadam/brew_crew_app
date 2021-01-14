@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Brew Crew</title>
+    <title>AdventBeer.com</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   </head>
 
   <body class="has-navbar-fixed-top" style="<%= background_image_css(post: @post) %>">
