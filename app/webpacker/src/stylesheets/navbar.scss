@@ -4,15 +4,17 @@
   @import '~bulma/sass/utilities/mixins';
 
   .navbar-item {
-    padding: .5rem .75rem;
+    padding: .25rem .75rem;
   }
 
   #navbar-logo {
     color: $mercury;
-    transition: background-color .3s ease;
+    border: 3px solid $eerie-black;
+    transition: border .3s ease;
+    padding: 0 .25em;
 
     &:hover {
-      background-color: $big-stone;
+      border: 3px solid $lightning-yellow;
     }
   }
 

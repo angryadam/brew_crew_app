@@ -1,29 +1,67 @@
+
 #welcome {
+  @import '~bulma/sass/utilities/initial-variables';
+  @import '~bulma/sass/utilities/derived-variables';
+  @import '~bulma/sass/utilities/mixins';
+
   .hero {
 	.container {
-	  background-color: rgba(36, 36, 35, 0.6);
+	  @include mobile {
+		max-width: 100%;
+	  }
+	  @include tablet-only {
+		max-width: 85%;
+	  }
+	  @include desktop-only {
+		max-width: 85%;
+	  }
+	  #beer-text {
+		animation-delay: .7s;
+	  }
+	  #middle-text {
+		animation-delay: 1.3s;
+	  }
+	  #holiday-text {
+		animation-delay: 2s;
+	  }
+
+	  background-color: rgba(20, 33, 61, 0.6);
+	  max-width: 75%;
 
 	  .title {
-		@import '~bulma/sass/utilities/initial-variables';
-		@import '~bulma/sass/utilities/derived-variables';
-		@import '~bulma/sass/utilities/mixins';
-
 		@include mobile {
+		  margin-left: 1.5rem;
 		  font-size: 2.5rem;
 		}
 		@include tablet-only {
+		  margin-left: 2.5rem;
 		  font-size: 3rem;
 		}
+		@include desktop-only {
+		  font-size: 4rem;
+		}
+		@include widescreen-only {
+		  font-size: 4.5rem;
+		}
+
+		margin-bottom: 0;
+		margin-left: 5rem;
 		color: $mercury;
 		font-size: 5rem;
 		line-height: 0;
 
-		.highlight-text {
-		  @include mobile {
+		&.highlight-text {
+		  @include mobile{
 			font-size: 5.5rem;
 		  }
 		  @include tablet-only {
-			font-size: 8rem;
+			font-size: 7rem;
+		  }
+		  @include desktop-only {
+			font-size: 8.5rem;
+		  }
+		  @include widescreen-only {
+			font-size: 9rem;
 		  }
 
 		  font-family: 'Patua One', sans-serif;

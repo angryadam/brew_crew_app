@@ -28,6 +28,22 @@ $body-background-color: $mercury;
 
 $header-and-footer-height: 140px;
 
+@keyframes popIn {
+  0% { opacity: 0; transform: translateY(-4rem) scale(.8); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.animate-pop-in {
+  animation: popIn .6s cubic-bezier(0, 0.9, 0.3, 1.3) forwards;
+  opacity: 0;
+}
+.animate-fade-in {
+  animation: fadeIn ease .5s;
+}
+
 .navbar-brand, .post-title, #post_title, .panel-heading,
 #index-heading, .index-subheading, #swal2-title, h2 {
   font-family: 'Patua One', serif;
