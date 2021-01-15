@@ -5,6 +5,11 @@
   @import '~bulma/sass/utilities/mixins';
 
   .hero {
+	.hero-body {
+	  @include mobile {
+		padding: 0;
+	  }
+	}
 	.container {
 	  @include mobile {
 		max-width: 100%;
@@ -31,7 +36,7 @@
 	  .title {
 		@include mobile {
 		  margin-left: 1.5rem;
-		  font-size: 2.5rem;
+		  font-size: 2rem;
 		}
 		@include tablet-only {
 		  margin-left: 2.5rem;
@@ -52,7 +57,7 @@
 
 		&.highlight-text {
 		  @include mobile{
-			font-size: 5.5rem;
+			font-size: 4rem;
 		  }
 		  @include tablet-only {
 			font-size: 7rem;

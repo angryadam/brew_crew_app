@@ -70,6 +70,14 @@ a.button.is-text {
 }
 
 #main-container {
+  @import '~bulma/sass/utilities/initial-variables';
+  @import '~bulma/sass/utilities/derived-variables';
+  @import '~bulma/sass/utilities/mixins';
+
+  @include mobile {
+    min-height: calc(100vh - 164px);
+  }
+
   min-height: calc(100vh - #{$header-and-footer-height});
   margin-top: 2em;
   padding: 1.5rem;
