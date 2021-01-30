@@ -51,6 +51,11 @@
   #unsplash-results {
 	margin: 1em 0 2em;
   }
+
+  // TODO: Hides attach file button until implementing ActiveStorage
+  .trix-button-group--file-tools {
+	display: none;
+  }
 }
 
 #user-posts-show {
