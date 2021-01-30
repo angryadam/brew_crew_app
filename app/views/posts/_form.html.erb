@@ -14,6 +14,7 @@
   </div>
   <%= f.fields_for :background_image,
                    (@post.build_background_image unless @post.background_image) do |ff| %>
+    <%= hidden_field_tag :unsplash_id %>
     <%= ff.hidden_field :image_url %>
     <%= ff.hidden_field :attribution_name %>
     <%= ff.hidden_field :attribution_url %>
@@ -30,6 +31,7 @@
         <% if policy(@post).archive? && !@post.archived? %>
           <%= link_to archive_crew_user_post_path(@crew, current_user, @post),
                       data: { behavior: 'archive' }, class: 'button is-text' do %>
+            Archive
             <i class="fas fa-archive"></i>
           <% end %>
         <% end %>

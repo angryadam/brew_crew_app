@@ -16,12 +16,14 @@
         <% if signed_in? %>
           <div class="navbar-item">
             <%= link_to crew_user_posts_path(@crew, current_user), class: 'button is-light' do %>
+              Home
               <i class="fas fa-home"></i>
             <% end %>
           </div>
           <% if current_user.poster? %>
             <div class="navbar-item">
               <%= link_to new_crew_user_post_path(@crew, current_user), class: 'button is-primary' do %>
+                New
                 <i class="fas fa-plus"></i>
                 <i class="fas fa-pen-nib"></i>
               <% end %>
@@ -30,6 +32,7 @@
           <div class="navbar-item"></div>
           <div class="navbar-item">
             <%= button_to sign_out_path, method: :delete, class: 'button is-link' do %>
+              Sign Out
               <i class="fas fa-sign-out-alt"></i>
             <% end %>
           </div>

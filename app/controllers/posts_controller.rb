@@ -25,6 +25,8 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     authorize @post
+    unsplash_download_event
+
     if @post.save
       flash[:success] = "\"#{@post.title}\" has been created!"
       redirect_to crew_user_posts_path(@crew, current_user)
@@ -42,6 +44,7 @@ class PostsController < ApplicationController
 
   def update
     authorize @post
+    unsplash_download_event
 
     if @post.update(post_params)
       flash[:success] = "\"#{@post.title}\" has been updated!"
@@ -61,7 +64,6 @@ class PostsController < ApplicationController
     authorize @post
 
     @post.update(live: true)
-    #   flash[:notice] = "\"#{@post.title}\" is now live and viewable! 🎉"
   end
 
   def archive
@@ -99,5 +101,9 @@ class PostsController < ApplicationController
       flash[:error] = 'Unable to find that post, please verify and try again.'
       redirect_to crew_user_posts_path(@crew, current_user)
     end
+  end
+
+  def unsplash_download_event
+    UnsplashDownloadEventJob.perform_later(params[:unsplash_id]) if params[:unsplash_id]
   end
 end

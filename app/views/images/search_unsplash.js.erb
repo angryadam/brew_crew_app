@@ -2,7 +2,7 @@ imagesContainer = $('#unsplash-results .columns.is-multiline')
 imagesContainer.empty()
 $("input[name='post[background_image_attributes][image_url]']").val('')
 
-<% unless @results.empty? %>
+<% if @results.present? %>
   <% @results.each do |result| %>
     imagesContainer.append('<%= j(render 'image_fields', result: result) %>')
   <% end %>
