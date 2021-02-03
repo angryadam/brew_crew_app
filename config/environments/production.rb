@@ -64,7 +64,6 @@ Rails.application.configure do
     user_name:            Rails.application.credentials.mailer[:username],
     password:             Rails.application.credentials.mailtrap[:password],
     authentication:       :plain,
-    tls:                  true,
     enable_starttls_auto: true
   }
 
