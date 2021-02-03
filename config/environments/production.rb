@@ -59,12 +59,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.zoho.com',
-    port:                 587,
+    port:                 465,
     domain:               'adventbeer.com',
     user_name:            Rails.application.credentials.mailer[:username],
-    password:             Rails.application.credentials.mailtrap[:password],
+    password:             Rails.application.credentials.mailer[:password],
     authentication:       :plain,
-    enable_starttls_auto: true
+    ssl:                  true
   }
 
 
