@@ -63,7 +63,7 @@ Rails.application.configure do
     domain:               'adventbeer.com',
     user_name:            Rails.application.credentials.mailer[:username],
     password:             Rails.application.credentials.mailtrap[:password],
-    authentication:       'plain',
+    authentication:       :login,
     ssl:                  true,
     tls:                  true,
     enable_starttls_auto: true
