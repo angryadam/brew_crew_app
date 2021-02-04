@@ -20,24 +20,24 @@
             <% if policy(post).edit? %>
               <%= link_to edit_crew_user_post_path(@crew, current_user, post),
                           class: 'button is-text' do %>
-                Edit
                 <i class="fas fa-edit"></i>
+                Edit
               <% end %>
             <% end %>
 
             <% if policy(post).archive? && !post.archived? %>
               <%= link_to archive_crew_user_post_path(@crew, current_user, post),
                           data: { behavior: 'archive' }, class: 'button is-text' do %>
-                Archive
                 <i class="fas fa-archive"></i>
+                Archive
               <% end %>
             <% end %>
 
             <% if policy(post).destroy? %>
               <%= link_to crew_user_post_path(@crew, current_user, post),
                           data: { behavior: 'delete' }, class: 'button is-text' do %>
-                Delete
                 <i class="fas fa-trash"></i>
+                Delete
               <% end %>
             <% end %>
           </div>

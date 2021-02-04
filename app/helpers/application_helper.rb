@@ -26,7 +26,8 @@ module ApplicationHelper
 
     if background_image
       sanitize(" | Background by #{ link_to(background_image.attribution_name, background_image.attribution_url, target: :_blank) } " +
-                   "on #{ link_to 'Unsplash', BackgroundImage::UNSPLASH_ATTRIBUTION_URL, target: :_blank }")
+                   "on #{ link_to 'Unsplash', BackgroundImage::UNSPLASH_ATTRIBUTION_URL, target: :_blank, rel: :no_follow }",
+               attributes: %w[href target rel]) # otherwise sanitize removes these attrs
     end
   end
 

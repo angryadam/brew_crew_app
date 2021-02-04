@@ -31,8 +31,8 @@
         <% if policy(@post).archive? && !@post.archived? %>
           <%= link_to archive_crew_user_post_path(@crew, current_user, @post),
                       data: { behavior: 'archive' }, class: 'button is-text' do %>
-            Archive
             <i class="fas fa-archive"></i>
+            Archive
           <% end %>
         <% end %>
       <% end %>

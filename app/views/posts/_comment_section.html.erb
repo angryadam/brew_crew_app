@@ -19,6 +19,7 @@
                   <%= link_to crew_user_post_comment_path(@crew, current_user, @post, comment),
                               data: { behavior: 'delete-comment' }, class: 'button is-text' do %>
                     <i class="fas fa-trash"></i>
+                    Delete
                   <% end %>
                 <% end %>
               </div>
@@ -33,7 +34,8 @@
 <% end %>
 
 <button class="button is-text" id="add-comment-button">
-  <i class="fas fa-plus"></i>Comment
+  <i class="fas fa-plus"></i>
+  Comment
 </button>
 
 <%= form_with model: [@crew, current_user, @post, Comment.new],
