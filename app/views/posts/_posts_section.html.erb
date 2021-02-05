@@ -3,7 +3,7 @@
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
       <div class="box">
         <h4 class="post-title is-size-4">
-          <%= link_to post.title.truncate(30), crew_user_post_path(@crew, current_user, post) %>
+          <%= link_to post.title.truncate(30), crew_user_post_path(@crew, post.posted_by, post) %>
         </h4>
         <p class="byline"><%= byline_text(name: post.posted_by.name.familiar, updated_at: post.updated_at) %></p>
         <hr>

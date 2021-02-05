@@ -64,6 +64,7 @@ class PostsController < ApplicationController
     authorize @post
 
     @post.update(live: true)
+    NotifyCrewOfLivePostJob.perform_later(post_id: @post.id, crew_id: @crew.id)
   end
 
   def archive
