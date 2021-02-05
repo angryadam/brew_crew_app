@@ -7,10 +7,10 @@ class PostsController < ApplicationController
 
   def index
     if current_user.poster?
-      @live_posts = current_user.posts.live.with_rich_text_body
-      @in_progress_posts = current_user.posts.in_progress.with_rich_text_body
+      @live_posts = current_user.posts.lifo.live.with_rich_text_body
+      @in_progress_posts = current_user.posts.lifo.in_progress.with_rich_text_body
     else
-      @live_posts = @crew.posts.live.with_rich_text_body
+      @live_posts = @crew.posts.lifo.live.with_rich_text_body
     end
   end
 

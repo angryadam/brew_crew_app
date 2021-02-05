@@ -73,10 +73,8 @@ a.button.is-text {
 
 #main-container {
   @import '~bulma/sass/utilities/initial-variables';
-  @import '~bulma/sass/utilities/derived-variables';
-  @import '~bulma/sass/utilities/mixins';
 
-  @include mobile {
+  @media screen and (max-width: $tablet - 1px) {
     min-height: calc(100vh - 164px);
   }
 

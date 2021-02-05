@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_one :background_image, class_name: 'BackgroundImage', dependent: :destroy
-  has_many :header_images, class_name: 'HeaderImage', dependent: :destroy
+  has_one :background_image, dependent: :destroy
+  has_many :header_images, dependent: :destroy
   has_many :comments
 
   accepts_nested_attributes_for :background_image,
@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
   before_validation :add_default_text
 
-  default_scope { order(created_at: :desc) }
+  scope :lifo, -> { order(updated_at: :desc) }
   scope :in_progress, -> { where(live: false, archived: false) }
   scope :live, -> { where(live: true) }
   scope :archived, -> { where(archived: true) }
