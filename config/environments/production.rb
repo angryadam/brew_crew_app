@@ -61,8 +61,8 @@ Rails.application.configure do
     address:              'smtp.zoho.com',
     port:                 465,
     domain:               'adventbeer.com',
-    user_name:            Rails.application.credentials.mailer[:username],
-    password:             Rails.application.credentials.mailer[:password],
+    user_name:            Rails.application.credentials.dig(:mailer, :username),
+    password:             Rails.application.credentials.dig(:mailer, :password),
     authentication:       :plain,
     ssl:                  true
   }
