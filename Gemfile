@@ -28,24 +28,20 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # User authentication
 gem 'clearance'
-
 # Presenting names
 gem 'name_of_person'
-
 # For API requests
 gem 'httparty'
-
 # Access Unsplash API
 gem 'unsplash'
-
 # Authorization management
 gem 'pundit'
-
 # Background jobs
 gem 'sidekiq'
-
 # Error monitoring
 gem 'rollbar'
+# Performance monitoring
+gem 'skylight'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
