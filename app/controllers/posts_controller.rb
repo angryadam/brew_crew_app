@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     if current_user.poster?
       @live_posts = current_user.posts.lifo.live.with_rich_text_body
       @in_progress_posts = current_user.posts.lifo.in_progress.with_rich_text_body
+      @other_posts = @crew.posts.other_users_post(current_user.id).lifo.live.with_rich_text_body
     else
       @live_posts = @crew.posts.lifo.live.with_rich_text_body
     end

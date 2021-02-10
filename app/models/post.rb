@@ -18,7 +18,8 @@ class Post < ApplicationRecord
   scope :in_progress, -> { where(live: false, archived: false) }
   scope :live, -> { where(live: true) }
   scope :archived, -> { where(archived: true) }
-
+  scope :other_users_post, -> (user_id) { where.not(user_id: user_id) }
+  
   private
 
   def add_default_text

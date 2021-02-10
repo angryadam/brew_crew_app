@@ -7,8 +7,13 @@
   <% end %>
   <%= render 'posts_section', posts: @live_posts %>
 
-  <% if @in_progress_posts %>
+  <% if @in_progress_posts.present? %>
     <h4 class="is-size-4 index-subheading">In-Progress</h4>
     <%= render 'posts_section', posts: @in_progress_posts %>
+  <% end %>
+
+  <% if @other_posts.present? %>
+    <h4 class="is-size-4 index-subheading">Other Users Posts</h4>
+    <%= render 'posts_section', posts: @other_posts %>
   <% end %>
 </div>
