@@ -328,7 +328,7 @@
                     <h1>Hi <%= @user.first_name %>,</h1>
                     <p>
                       There is a new post by <%= @post.posted_by.name.familiar %> -
-                      click the button below to read "<%= @post. title%>"!
+                      click the button below to read "<%= @post.title%>"!
                     </p>
                     <!-- Action -->
                     <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
@@ -339,7 +339,7 @@
                           <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
                             <tr>
                               <td align="center">
-                                <%= link_to 'View Post', crew_user_post_url(@crew, @post.posted_by, @post),
+                                <%= link_to 'View Post', crew_post_url(@crew, @post),
                                             class: 'f-fallback button button--yellow' %>
                               </td>
                             </tr>
@@ -352,7 +352,7 @@
                       <tr>
                         <td>
                           <p class="f-fallback sub">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
-                          <p class="f-fallback sub"><%= crew_user_post_url(@crew, @post.posted_by, @post) %></p>
+                          <p class="f-fallback sub"><%= crew_post_url(@crew, @post) %></p>
                         </td>
                       </tr>
                     </table>

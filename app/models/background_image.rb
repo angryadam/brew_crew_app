@@ -9,7 +9,7 @@ class BackgroundImage < Image
                      attribution_url: photo.user.links.html,
                      image_url: photo.urls.regular)
     end
-  rescue Unsplash::NotFoundError => _
-    nil
+  rescue Unsplash::NotFoundError => e
+    Rollbar.error(e)
   end
 end

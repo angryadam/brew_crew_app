@@ -3,19 +3,23 @@
     <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
       <div class="box">
         <h4 class="post-title is-size-4">
-          <%= link_to post.title.truncate(30), crew_user_post_path(@crew, post.posted_by, post) %>
+          <%= link_to post.title.truncate(50), crew_post_path(@crew, post) %>
         </h4>
         <p class="byline"><%= byline_text(name: post.posted_by.name.familiar, updated_at: post.updated_at) %></p>
-        <hr>
-        <p><%= truncate(post.body.to_plain_text, length: 120) %></p>
 
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <% if policy(post).go_live? && !(post.live? || post.archived?) %>
+        <%= sanitize("<hr>") if current_user.poster? %>
+
+        <% if policy(post).go_live? && !(post.live? || post.archived?) %>
+          <nav class="level is-mobile">
+            <div class="level-left"></div>
+            <div class="level-right">
               <%= link_to 'Go Live!', go_live_crew_user_post_path(@crew, current_user, post),
                           data: { behavior: 'go-live' }, class: 'button is-primary' %>
-            <% end %>
-          </div>
+            </div>
+          </nav>
+        <% end %>
+        <nav class="level is-mobile">
+          <div class="level-left"></div>
           <div class="level-right">
             <% if policy(post).edit? %>
               <%= link_to edit_crew_user_post_path(@crew, current_user, post),

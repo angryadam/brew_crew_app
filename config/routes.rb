@@ -30,10 +30,10 @@ Rails.application.routes.draw do
   end
 
   resources :crews, path: '', only: [] do
-    resources :posts, only: :index
+    resources :posts, only: [:index, :show]
 
     resources :users, path: '', only: [] do
-      resources :posts do
+      resources :posts, except: :show do
         member do
           post :go_live
           post :archive

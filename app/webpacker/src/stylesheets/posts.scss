@@ -5,17 +5,18 @@
   }
 
   .posts-container {
-	.post-title a {
-	  text-decoration: underline solid transparent;
-
-	  &:hover {
-		text-decoration: underline solid $lightning-yellow ;
+	.post-title {
+	  min-height: 3em;
+	  a {
+		text-decoration: underline solid transparent;
+		&:hover {
+		  text-decoration: underline solid $lightning-yellow ;
+		}
 	  }
 	}
 
 	.box {
-	  min-height: 15em;
-
+	  min-height: 9em;
 	  .byline { color: $diminished-grey; }
 	  .level { margin-top: 1em; }
 	}

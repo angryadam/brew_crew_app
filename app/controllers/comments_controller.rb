@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
     @comment.save ? flash[:success] = 'You have commented!' : flash[:error] = 'Problem creating comment, please try again.'
 
-    redirect_to crew_user_post_path(current_user.crew, current_user, params[:post_id])
+    redirect_to crew_post_path(current_user.crew, params[:post_id])
   end
 
   def destroy
