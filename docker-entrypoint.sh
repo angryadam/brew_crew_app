@@ -2,7 +2,7 @@
 
 set -e
 
-bundle check || bundle install --binstubs="$BUNDLE_BIN"
+bundle check || bundle binstubs --path "$BUNDLE_BIN"
 rm -f /project/tmp/pids/server.pid
 
 exec "$@"

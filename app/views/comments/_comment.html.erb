@@ -1,0 +1,23 @@
+<div class="card" id="<%= dom_id comment %>">
+  <div class="card-content">
+
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <h5 class="title is-size-5">
+          <%= comment.commented_by.name.familiar %>
+        </h5>
+      </div>
+      <div class="level-right">
+        <% if policy(comment).destroy? %>
+          <%= link_to crew_user_post_comment_path(@crew, current_user, @post, comment),
+                      data: { behavior: 'delete-comment' }, class: 'button is-text' do %>
+            <i class="fas fa-trash"></i>
+            Delete
+          <% end %>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="content"><%= comment.text %></div>
+  </div>
+</div>

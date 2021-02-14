@@ -1,15 +1,13 @@
 class CommentsController < ApplicationController
   before_action :require_login
+  before_action :set_post, only: :create
   before_action :set_comment, only: :destroy
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user = current_user
-    @comment.post_id = params[:post_id]
+    @comment = @post.comments.new(comment_params.merge({ user_id: current_user.id }))
+    @comment.save! ? flash[:success] = 'You have commented!' : flash[:error] = 'Problem creating comment, please try again.'
 
-    @comment.save ? flash[:success] = 'You have commented!' : flash[:error] = 'Problem creating comment, please try again.'
-
-    redirect_to crew_post_path(current_user.crew, params[:post_id])
+    redirect_to crew_post_path(current_user.crew, @post)
   end
 
   def destroy
@@ -19,6 +17,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find_by_id(params[:post_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:text)

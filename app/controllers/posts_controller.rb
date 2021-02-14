@@ -84,7 +84,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    unless @post = @crew.posts.find_by(id: params[:id])
+    unless (@post = @crew.posts.includes(comments: :commented_by).find_by(id: params[:id]))
       flash[:error] = 'Unable to find that post, please verify and try again.'
       redirect_to crew_user_posts_path(@crew, current_user)
     end
