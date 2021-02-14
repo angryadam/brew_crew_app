@@ -100,7 +100,20 @@
 	}
 	#post-comments {
 	  display: none;
-	  .level { margin-bottom: 0.5em; }
+	  .level.comment-header {
+		margin-bottom: -0.25em;
+
+		@include mobile {
+		  .level-left {
+			max-width: 7em;
+		  }
+		}
+	  }
+
+	  .level.comment-time {
+		color: $diminished-grey;
+		font-size: 0.8em;
+	  }
 	}
   }
 
