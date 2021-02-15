@@ -31,9 +31,21 @@
       text-align: center;
     }
 
-    .navbar-item {
+    .navbar-item:not(.has-dropdown) {
       @include touch {
         display: inline-block;
+      }
+    }
+
+    .navbar-item.has-dropdown.is-hoverable .navbar-link {
+      padding-right: 0.75rem;
+      color: $mercury;
+      background-color: $eerie-black !important;
+      text-decoration: underline $eerie-black;
+      transition: text-decoration .2s ease;
+
+      &:hover {
+        text-decoration: underline solid 2px $lightning-yellow;;
       }
     }
   }

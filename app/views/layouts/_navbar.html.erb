@@ -29,7 +29,22 @@
               <% end %>
             </div>
           <% end %>
-          <div class="navbar-item"></div>
+          <% if current_user.has_many_crews? %>
+            <div class="navbar-item has-dropdown is-hoverable is-hidden-touch">
+              <a class="navbar-link">
+                <%= @crew.name %>
+                <i class="fas fa-angle-down"></i>
+              </a>
+              <div class="navbar-dropdown">
+                <% current_user.crews.each do |crew| %>
+                  <%= link_to crew.name,
+                              crew_posts_path(crew),
+                              class: 'navbar-item' %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="navbar-item is-hidden-touch"></div>
           <div class="navbar-item">
             <%= button_to sign_out_path, method: :delete, class: 'button is-link' do %>
               <i class="fas fa-sign-out-alt"></i>

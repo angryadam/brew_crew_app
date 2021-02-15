@@ -53,9 +53,13 @@ $header-and-footer-height: 140px;
   border-bottom: 2px solid $lightning-yellow;
 }
 
-.fa-plus { font-size: 0.6em }
+.fa-plus { font-size: 0.6em; }
+.fa-angle-down { margin-left: 0.5em; }
+
 .fa-archive, .fa-edit, .fa-trash,
-.fa-home, .fa-sign-out-alt, .fa-pen-nib { margin-right: .5em }
+.fa-home, .fa-sign-out-alt, .fa-pen-nib, .fa-gift {
+  margin-right: .5em;
+}
 
 a {
   transition: color .2s ease;

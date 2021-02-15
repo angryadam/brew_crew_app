@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :crew
   has_one :background_image, dependent: :destroy
   has_many :header_images, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -18,7 +19,8 @@ class Post < ApplicationRecord
   scope :in_progress, -> { where(live: false, archived: false) }
   scope :live, -> { where(live: true) }
   scope :archived, -> { where(archived: true) }
-  scope :other_users_post, -> (user_id) { where.not(user_id: user_id) }
+  scope :current_users_posts, -> (user_id) { where(user_id: user_id) }
+  scope :other_users_posts, -> (user_id) { where.not(user_id: user_id) }
   
   private
 

@@ -1,29 +1,21 @@
 class PostsController < ApplicationController
   before_action :require_login
-  before_action :get_user_crew
+  before_action :set_current_crew
   before_action :set_post, except: [:index, :new, :create, :show]
   before_action :set_live_post, only: :show
 
-
   def index
-    if current_user.poster?
-      @live_posts = current_user.posts.lifo.live.with_rich_text_body
-      @in_progress_posts = current_user.posts.lifo.in_progress.with_rich_text_body
-      @other_posts = @crew.posts.other_users_post(current_user.id).lifo.live.with_rich_text_body
-    else
-      @live_posts = @crew.posts.lifo.live.with_rich_text_body
-    end
+    @posts_facade = PostsFacade.new(user: current_user, crew: @crew)
   end
 
   def new
-    @post = Post.new
+    @post = @crew.posts.new
 
     authorize @post
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @post = @crew.posts.new(post_params.merge({ user_id: current_user.id }))
 
     authorize @post
     unsplash_download_event
