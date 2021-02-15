@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params.merge({ user_id: current_user.id }))
     @comment.save! ? flash[:success] = 'You have commented!' : flash[:error] = 'Problem creating comment, please try again.'
 
-    redirect_to crew_post_path(current_user.crew, @post)
+    redirect_to crew_post_path(@post.crew, @post)
   end
 
   def destroy

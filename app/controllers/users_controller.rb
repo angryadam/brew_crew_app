@@ -4,7 +4,7 @@ class UsersController < Clearance::UsersController
   skip_before_action :require_login, raise: false
 
   def create
-    @user = User.new(user_params).tap { |u| u.crew = @crew }
+    @user = User.new(user_params).tap { |u| u.crews << @crew }
 
     if @user.save
       sign_in @user
