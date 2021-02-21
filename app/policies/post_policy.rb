@@ -3,10 +3,11 @@ class PostPolicy < ApplicationPolicy
   def initialize(user, post)
     @user = user
     @post = post
+    @crew_membership = CrewMembership.find_by(crew_id: post.crew_id, user_id: user.id)
   end
 
   def create?
-    user.admin? || user.crew_admin? || user.poster?
+    user.admin? || crew_membership&.crew_admin? || crew_membership&.poster?
   end
 
   def update?
@@ -14,11 +15,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || user.crew_admin? || post_belongs_to_user?
+    user.admin? || crew_membership&.crew_admin? || post_belongs_to_user?
   end
 
   def go_live?
-    user.admin? || user.crew_admin? || post_belongs_to_user?
+    user.admin? || crew_membership&.crew_admin? || post_belongs_to_user?
   end
 
   def archive?
@@ -27,7 +28,7 @@ class PostPolicy < ApplicationPolicy
 
   private
 
-  attr_reader :post
+  attr_reader :post, :crew_membership
 
   def post_belongs_to_user?
     user == post.posted_by

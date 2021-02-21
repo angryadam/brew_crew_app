@@ -7,6 +7,9 @@ class Comment < ApplicationRecord
 
   before_validation :add_default_text
 
+  delegate :crew_id, to: :post
+  delegate :crew, to: :post
+
   private
 
   def add_default_text

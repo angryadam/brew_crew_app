@@ -15,8 +15,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_crew_membership
+    @crew_membership = CrewMembership.find_by(crew_id: @crew.id, user_id: current_user.id)
+  end
+
   def user_not_authorized
-    flash[:error] = "You are not authorized to do that! If you think you should be, let 🧔🏻 know."
+    flash[:error] = "You are not authorized to do that! If you think you should be, " +
+                    "email support at support@adventbeer.com."
     redirect_to(request.referrer || root_path)
   end
 end

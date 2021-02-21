@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :require_login
   before_action :set_current_crew
+  before_action :set_crew_membership
   before_action :set_post, except: [:index, :new, :create, :show]
   before_action :set_live_post, only: :show
 
@@ -76,7 +77,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    unless (@post = @crew.posts.includes(comments: :commented_by).find_by(id: params[:id]))
+    unless (@post = @crew.posts.includes(:comments).find_by_id(params[:id]))
       flash[:error] = 'Unable to find that post, please verify and try again.'
       redirect_to crew_user_posts_path(@crew, current_user)
     end
@@ -84,7 +85,7 @@ class PostsController < ApplicationController
 
   def set_live_post
     # to allow posters to view before it goes live
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by_id(params[:id])
     if @post
       return if @post.posted_by == current_user
       unless @post.live?

@@ -1,10 +1,10 @@
 <div id="user-posts-index">
   <h2 class="is-size-2" id="index-heading">
-    <%= index_title_text(is_poster: current_user.poster?,
+    <%= index_title_text(is_poster: @crew_membership&.poster?,
                          crew_name: @crew.name) %>
   </h2>
 
-  <% if current_user.poster? && @posts_facade.live_posts.present? %>
+  <% if @crew_membership&.poster? && @posts_facade.live_posts.present? %>
     <h4 class="is-size-4 index-subheading">Live</h4>
   <% end %>
   <%= render 'posts_section', posts: @posts_facade.live_posts %>
@@ -15,7 +15,7 @@
     <%= render 'posts_section', posts: @posts_facade.in_progress_posts %>
   <% end %>
 
-  <% if current_user.poster? && @posts_facade.other_posts.present? %>
+  <% if @crew_membership&.poster? && @posts_facade.other_posts.present? %>
     <hr>
     <h4 class="is-size-4 index-subheading">Other Users Posts</h4>
     <%= render 'posts_section', posts: @posts_facade.other_posts %>

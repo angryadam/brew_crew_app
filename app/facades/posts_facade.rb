@@ -2,10 +2,11 @@ class PostsFacade
   def initialize(user:, crew:)
     @user = user
     @crew = crew
+    @crew_membership = CrewMembership.find_by(crew_id: crew.id, user_id: user.id)
   end
 
   def live_posts
-    @live_posts ||= user.poster? ? user_posts.lifo.live.with_rich_text_body :
+    @live_posts ||= crew_membership&.poster? ? user_posts.lifo.live.with_rich_text_body :
                       crew.posts.lifo.live.with_rich_text_body
   end
 
@@ -19,7 +20,7 @@ class PostsFacade
 
   private
 
-  attr_reader :user, :crew, :user_posts
+  attr_reader :user, :crew, :crew_membership, :user_posts
 
   def user_posts
     @user_posts ||= crew.posts.current_users_posts(user.id)

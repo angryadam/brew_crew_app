@@ -7,7 +7,7 @@
         </h4>
         <p class="byline"><%= byline_text(name: post.posted_by.name.familiar, updated_at: post.updated_at) %></p>
 
-        <%= sanitize("<hr>") if current_user.poster? %>
+        <%= sanitize("<hr>") if @crew_membership&.poster? %>
 
         <% if policy(post).go_live? && !(post.live? || post.archived?) %>
           <nav class="level is-mobile">

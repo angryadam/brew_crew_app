@@ -20,7 +20,7 @@
               Home
             <% end %>
           </div>
-          <% if current_user.poster? %>
+          <% if @crew_membership&.poster? %>
             <div class="navbar-item">
               <%= link_to new_crew_user_post_path(@crew, current_user), class: 'button is-primary' do %>
                 <i class="fas fa-plus"></i>
