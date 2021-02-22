@@ -75,6 +75,11 @@ a.button.is-text {
   text-decoration: none;
 }
 
+.trix-content a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 #main-container {
   @import '~bulma/sass/utilities/initial-variables';
 

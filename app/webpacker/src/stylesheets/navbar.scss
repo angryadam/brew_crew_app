@@ -37,15 +37,43 @@
       }
     }
 
-    .navbar-item.has-dropdown.is-hoverable .navbar-link {
-      padding-right: 0.75rem;
-      color: $mercury;
-      background-color: $eerie-black !important;
-      text-decoration: underline $eerie-black;
-      transition: text-decoration .2s ease;
+    .navbar-item.has-dropdown.is-hoverable {
+      @include touch {
+        margin: 2em 0;
+      }
+      .navbar-link {
+        @include touch {
+          .fa-angle-down { display: none; }
 
-      &:hover {
-        text-decoration: underline solid 2px $lightning-yellow;;
+          border-bottom: white 1px solid;
+          width: 75%;
+          margin: auto;
+          font-weight: bold;
+        }
+        padding-right: 0.75rem;
+        color: $mercury;
+        background-color: $eerie-black !important;
+        text-decoration: underline $eerie-black;
+        transition: text-decoration .2s ease;
+
+        &:hover {
+          text-decoration: underline solid 2px $lightning-yellow;;
+        }
+      }
+
+      .navbar-dropdown .navbar-item {
+        @include touch {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          color: $mercury;
+          text-decoration: underline $lightning-yellow 1px;
+          text-underline-offset: 3px;
+
+          &:hover, &:focus, &:focus-within {
+            background-color: $eerie-black !important;
+          }
+        }
       }
     }
   }
