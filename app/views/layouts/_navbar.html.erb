@@ -46,6 +46,12 @@
           <% end %>
           <div class="navbar-item is-hidden-touch"></div>
           <div class="navbar-item">
+            <%= link_to edit_crew_user_path(@crew, current_user), class: 'button is-link' do %>
+              <i class="fas fa-user"></i>
+              Profile
+            <% end %>
+          </div>
+          <div class="navbar-item">
             <%= button_to sign_out_path, method: :delete, class: 'button is-link' do %>
               <i class="fas fa-sign-out-alt"></i>
               Sign Out

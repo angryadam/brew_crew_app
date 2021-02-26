@@ -1,0 +1,12 @@
+<h3 class="title is-size-3">Stats</h3>
+<div class="block">
+  <strong>Joined Date:</strong> <%= format_datetime(current_user.created_at) %>
+</div>
+<% if current_user.posts.present? %>
+  <div class="block">
+    <strong>Posts:</strong> <%= current_user.posts.size %>
+  </div>
+<% end %>
+<div class="block">
+  <strong>Comments:</strong> <%= current_user.comments.size %>
+</div>

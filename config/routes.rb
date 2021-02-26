@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :crews, path: '', only: [] do
     resources :posts, only: [:index, :show]
 
-    resources :users, path: '', only: [] do
+    resources :users, path: '', only: [:edit, :update] do
       resources :posts, except: :show do
         member do
           post :go_live
@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         end
         resources :comments, only: [:create, :destroy]
       end
+      resources :crew_memberships, only: :destroy
     end
   end
 

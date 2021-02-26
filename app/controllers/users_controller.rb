@@ -1,7 +1,8 @@
 class UsersController < Clearance::UsersController
-  before_action :redirect_signed_in_users
-  before_action :get_crew_by_join_code
-  skip_before_action :require_login, raise: false
+  before_action :get_crew_by_join_code, only: :create
+  before_action :redirect_signed_in_users, only: :create
+  skip_before_action :require_login, raise: false, only: :create
+  before_action :set_current_crew, except: :create
 
   def create
     @user = User.new(user_params).tap { |u| u.crews << @crew }
@@ -11,6 +12,18 @@ class UsersController < Clearance::UsersController
       redirect_back_or url_after_create
     else
       render template: "users/new"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if current_user.update(user_params)
+      flash[:success] = "Updates were successful!"
+      redirect_to edit_crew_user_path(@crew, current_user)
+    else
+      render :edit
     end
   end
 
