@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :require_login
   before_action :set_current_crew
   before_action :set_crew_membership
   before_action :set_post, except: [:index, :new, :create, :show]

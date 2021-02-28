@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :require_login
+
   include Clearance::Controller, Pundit
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

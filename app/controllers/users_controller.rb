@@ -3,6 +3,7 @@ class UsersController < Clearance::UsersController
   before_action :redirect_signed_in_users, only: :create
   skip_before_action :require_login, raise: false, only: :create
   before_action :set_current_crew, except: :create
+  before_action :set_crew_membership, only: :edit
 
   def create
     @user = User.new(user_params).tap { |u| u.crews << @crew }
