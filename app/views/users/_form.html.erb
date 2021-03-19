@@ -2,8 +2,8 @@
   <div class="text-field field">
     <label class="label">Crew Code</label>
     <div class="control has-icons-left">
-      <%= form.text_field :crew_join_code, class: 'input is-large',
-                          placeholder: 'crew code', required: true %>
+      <%= form.text_field :crew_join_code, value: params[:crew_join_code],
+                          class: 'input is-large', placeholder: 'crew code', required: true %>
       <span class="icon is-small is-left">
         <i class="fas fa-user-secret"></i>
       </span>
