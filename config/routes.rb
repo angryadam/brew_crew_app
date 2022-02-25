@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         member do
           post :go_live
           post :archive
+          delete :remove_header_images
         end
         resources :comments, only: [:create, :destroy]
       end

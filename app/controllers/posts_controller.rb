@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   def update
     authorize @post
     unsplash_download_event
-
     if @post.update(post_params)
       flash[:success] = "\"#{@post.title}\" has been updated!"
       redirect_to crew_user_posts_path(@crew, current_user)
@@ -66,10 +65,17 @@ class PostsController < ApplicationController
     @post.update(archived: true)
   end
 
+  def remove_header_images
+    authorize @post
+
+    @post.header_images.purge
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:title, :body,
+                                 header_images: [],
                                  background_image_attributes: [:id, :image_url,
                                                                :attribution_name,
                                                                :attribution_url])

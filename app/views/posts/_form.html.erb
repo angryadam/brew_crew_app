@@ -8,6 +8,38 @@
   </div>
   <div class="field">
     <div class="control">
+      <div class="file has-name">
+        <label class="file-label">
+          <input class="file-input" type="file" name="image">
+          <span class="file-cta">
+            <span class="file-icon">
+            <i class="fas fa-upload"></i>
+            </span>
+            <%= f.file_field :header_images, multiple: true %>
+          </span>
+        </label>
+      </div>
+    </div>
+    <% if @post.header_images.attached? %>
+      <section class="section" id="header-images-container" >
+        <div class="columns is-multiline">
+          <% @post.header_images.each do |h_image| %>
+            <div class="column <%= header_images_css_column_class(@post.header_images.size) %>">
+              <figure class="image"><%= image_tag(h_image) %></figure>
+            </div>
+          <% end %>
+        </div>
+        <nav class="level">
+          <div class="level-left">
+            <%= link_to 'Remove Images', remove_header_images_crew_user_post_path(@crew, current_user, @post),
+                        data: { behavior: 'remove-header-images' }, class: 'button is-text' %>
+          </div>
+        </nav>
+      </section>
+    <% end %>
+  </div>
+  <div class="field">
+    <div class="control">
       <%= f.rich_text_area :body,
                            placeholder: 'Write your thoughts here...' %>
     </div>

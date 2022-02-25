@@ -4,6 +4,15 @@
     <%= byline_text(name: @post.posted_by.name.familiar, updated_at: @post.updated_at) %>
   </h5>
   <hr>
+  <% if @post.header_images.attached? %>
+    <div id="header-images-container" class="columns is-multiline">
+      <% @post.header_images.each do |h_image| %>
+        <div class="column <%= header_images_css_column_class(@post.header_images.size) %>">
+          <figure class="image"><%= image_tag(h_image) %></figure>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <p><%= @post.body %></p>
   <hr>
   <%= render 'comment_section' %>

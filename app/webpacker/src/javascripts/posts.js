@@ -80,4 +80,18 @@ $(document).on('turbolinks:load', function() {
       }
     })
   })
+
+  $("[data-behavior='remove-header-images']").click(function(e) {
+    e.preventDefault()
+    let button = $(this)[0]
+    $.ajax({
+      url: $(this).attr("href"),
+      dataType: "JSON",
+      method: "DELETE",
+      success: function() {
+        $(button).fadeOut('slow')
+        $('#header-images-container').fadeOut('slow')
+      }
+    })
+  })
 });

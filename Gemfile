@@ -42,6 +42,8 @@ gem 'sidekiq'
 gem 'rollbar'
 # Performance monitoring
 gem 'skylight'
+# For S3 image uploading
+gem 'aws-sdk-s3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

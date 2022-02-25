@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :crew
   has_one :background_image, dependent: :destroy
-  has_many :header_images, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many_attached :header_images
 
   accepts_nested_attributes_for :background_image,
                                 allow_destroy: true,

@@ -23,7 +23,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def archive?
-    post_belongs_to_user?
+    user.admin? || post_belongs_to_user?
+  end
+
+  def remove_header_images?
+    user.admin? || crew_membership&.crew_admin? || post_belongs_to_user?
   end
 
   private
