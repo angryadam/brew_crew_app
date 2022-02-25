@@ -13,6 +13,6 @@ module PostHelper
   end
 
   def header_images_css_column_class(num_images)
-    num_images.eql?(1) ? 'is-full' : 'is-full-mobile is-half-tablet is-half-desktop'
+    num_images == 1 ? 'is-full' : 'is-full-mobile is-half-tablet is-half-desktop'
   end
 end
