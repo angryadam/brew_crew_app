@@ -3,6 +3,7 @@
 // a relevant structure within app/webpacker and only use these pack files to reference
 // that code so it'll be compiled.
 
+import 'packs/stylesheets'
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("trix")
